@@ -41,6 +41,7 @@ call plug#begin()
 "Appearance
 Plug 'vim-airline/vim-airline'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
 "Utilities
 Plug 'sheerun/vim-polyglot'
 
