@@ -24,8 +24,9 @@ set path+=**               "provides tab-completion for all file-related tasks
 set wildmenu               "display matches when we tab complete
 
 "key mappings
+"backslash is needed for escaping pipe characters
 map <F3> :Explore<CR>
-map <F4> :term ++close ++rows=10<CR>
+map <F4> :split \| resize 10 \| terminal<CR>
 
 "on save rm trailing whitespace
 "https://vim.fandom.com/wiki/Remove_unwanted_spaces
