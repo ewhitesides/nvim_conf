@@ -37,17 +37,24 @@ let g:netrw_liststyle=3  "tree view
 
 "Plugins
 call plug#begin()
-" Utilities
+"Appearance
+Plug 'vim-airline/vim-airline'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"Utilities
 Plug 'sheerun/vim-polyglot'
 
-" Completion/linters/formatters
+"Completion/linters/formatters
 Plug 'github/copilot.vim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'plasticboy/vim-markdown'
 
-" Git
+"Git
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
-" Install coc extensions if they are missing
+"Colorscheme
+colorscheme tokyonight
+
+"Install coc extensions if they are missing
 let g:coc_global_extensions=[ 'coc-snippets', 'coc-powershell' ]
+
