@@ -48,7 +48,6 @@ Plug 'sheerun/vim-polyglot'
 "Completion/linters/formatters
 Plug 'github/copilot.vim'
 Plug 'neoclide/coc.nvim', {'branch':'release'}
-Plug 'plasticboy/vim-markdown'
 
 "Git
 Plug 'airblade/vim-gitgutter'
