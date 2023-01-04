@@ -42,12 +42,8 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-"Utilities
-Plug 'sheerun/vim-polyglot'
-
 "Completion/linters/formatters
 Plug 'github/copilot.vim'
-Plug 'neoclide/coc.nvim', {'branch':'release'}
 
 "Git
 Plug 'airblade/vim-gitgutter'
@@ -55,7 +51,4 @@ call plug#end()
 
 "Colorscheme
 colorscheme tokyonight
-
-"Install coc extensions if they are missing
-let g:coc_global_extensions=[ 'coc-snippets', 'coc-powershell' ]
 
