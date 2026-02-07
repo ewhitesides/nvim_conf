@@ -42,9 +42,6 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-"Completion/linters/formatters
-Plug 'github/copilot.vim'
-
 "Git
 Plug 'airblade/vim-gitgutter'
 call plug#end()
