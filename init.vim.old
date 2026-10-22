@@ -1,14 +1,19 @@
 "general
-set number                     "add line numbers
-set ruler                      "show column number
-set splitbelow                 "split below
-set splitright                 "vsplit right
-set encoding=UTF-8             "always use UTF-8
-set mouse=                     "disable mouse"
-set nobackup                   "prevent tilde files from being generated
-set wildmode=longest,list,full "longest/list are for bash-like tab completions. full is for wildmenu.
-set backspace=indent,eol,start "fixes backspace on windows version of vim
-syntax on                      "syntax highlighting
+set number                          "add line numbers
+set ruler                           "show column number
+set splitbelow                      "split below
+set splitright                      "vsplit right
+set encoding=UTF-8                  "always use UTF-8
+set mouse=                          "disable mouse"
+set nobackup                        "prevent tilde files from being generated
+set wildmode=longest,list,full     "longest/list are for bash-like tab completions. full is for wildmenu.
+set backspace=indent,eol,start    "fixes backspace on windows version of vim
+syntax on                         "syntax highlighting
+set guicursor+=i:block-blinkon500-blinkoff500-blinkwait1000
+set guicursor+=n:block-blinkon500-blinkoff500-blinkwait1000
+set guicursor+=ci:block-blinkon500-blinkoff500-blinkwait1000
+set guicursor+=ve:block-blinkon500-blinkoff500-blinkwait1000
+
 
 "tab settings to ensure no tab characters
 "https://vim.fandom.com/wiki/Indenting_source_code
