@@ -32,16 +32,27 @@ vim.opt.wildmenu = true                         -- display matches when we tab c
 -- Key mappings
 -- backslash is not needed for escaping pipe characters in Lua
 vim.keymap.set({ "n", "v" }, "<F3>", "<cmd>Explore<CR>")
-vim.keymap.set({ "n", "v" }, "<F4>", function()
-  vim.cmd("split | resize 10 | terminal pwsh.exe -NoLogo")
-  vim.cmd("startinsert")
-end, { desc = "Terminal split (pwsh)" })
 
--- Switch between terminal and editor with Ctrl+` (or Ctrl+~)
-vim.keymap.set("t", "<C-`>", "<C-\\><C-n><C-w>p", { desc = "Switch from terminal to editor" })
-vim.keymap.set("t", "<C-~>", "<C-\\><C-n><C-w>p", { desc = "Switch from terminal to editor" })
-vim.keymap.set("n", "<C-`>", "<C-w>p", { desc = "Switch to previous window / terminal" })
-vim.keymap.set("n", "<C-~>", "<C-w>p", { desc = "Switch to previous window / terminal" })
+-- Terminal toggle (F4)
+local function toggle_terminal()
+  if vim.bo.buftype == "terminal" then
+    vim.cmd("wincmd p")
+  else
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.bo[buf].buftype == "terminal" then
+        vim.api.nvim_set_current_win(win)
+        vim.cmd("startinsert")
+        return
+      end
+    end
+    vim.cmd("split | resize 10 | terminal pwsh.exe -NoLogo")
+    vim.cmd("startinsert")
+  end
+end
+
+vim.keymap.set({ "n", "v" }, "<F4>", toggle_terminal, { desc = "Toggle terminal split (pwsh)" })
+vim.keymap.set("t", "<F4>", "<C-\\><C-n><C-w>p", { desc = "Switch from terminal to editor" })
 
 -- Terminal configuration
 vim.api.nvim_create_autocmd("TermOpen", {
