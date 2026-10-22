@@ -22,16 +22,13 @@ A personal, modern Neovim configuration built with Lua, featuring fuzzy file fin
 
 ### 2. Autocompletion & IntelliSense (Dropdown Menu)
 
-The dropdown menu automatically appears while typing. You can also interact with it using:
+The dropdown menu automatically appears while typing. You can interact with it using standard Neovim / `nvim-cmp` default keys:
 
 | Shortcut | Mode | Action |
 | :--- | :---: | :--- |
-| <kbd>Ctrl</kbd> + <kbd>Space</kbd> | Insert | Manually trigger autocomplete dropdown / parameter hints |
-| <kbd>Tab</kbd> | Insert | Select next item / expand snippet |
-| <kbd>Shift</kbd> + <kbd>Tab</kbd> | Insert | Select previous item / jump back in snippet |
-| <kbd>Enter</kbd> | Insert | Confirm and insert selected completion |
-| <kbd>Ctrl</kbd> + <kbd>d</kbd> | Insert | Scroll documentation popup **down** |
-| <kbd>Ctrl</kbd> + <kbd>u</kbd> | Insert | Scroll documentation popup **up** |
+| <kbd>Ctrl</kbd> + <kbd>n</kbd> / <kbd>↓</kbd> | Insert | Select next item (or open completion popup if closed) |
+| <kbd>Ctrl</kbd> + <kbd>p</kbd> / <kbd>↑</kbd> | Insert | Select previous item (or open completion popup if closed) |
+| <kbd>Ctrl</kbd> + <kbd>y</kbd> | Insert | Confirm and insert selected completion |
 | <kbd>Ctrl</kbd> + <kbd>e</kbd> | Insert | Abort / close completion menu |
 
 ---
