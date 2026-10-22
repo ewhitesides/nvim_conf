@@ -100,19 +100,6 @@ Plug("airblade/vim-gitgutter")
 Plug("nvim-lua/plenary.nvim")
 Plug("nvim-telescope/telescope.nvim", { ["tag"] = "0.1.8" })
 
--- LSP & Language Servers
-Plug("neovim/nvim-lspconfig")
-Plug("williamboman/mason.nvim")
-Plug("williamboman/mason-lspconfig.nvim")
-
--- Autocompletion & Dropdown Menu (IntelliSense)
-Plug("hrsh7th/nvim-cmp")
-Plug("hrsh7th/cmp-nvim-lsp")
-Plug("hrsh7th/cmp-buffer")
-Plug("hrsh7th/cmp-path")
-Plug("L3MON4D3/LuaSnip")
-Plug("saadparwaiz1/cmp_luasnip")
-
 vim.call("plug#end")
 
 -- Keymap for Ctrl-P (Telescope)
@@ -120,48 +107,3 @@ vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "Find fil
 
 -- Colorscheme
 vim.cmd.colorscheme("tokyonight")
-
--- =============================================================================
--- LSP & Autocompletion (IntelliSense)
--- =============================================================================
-local cmp_status, cmp = pcall(require, "cmp")
-local luasnip_status, luasnip = pcall(require, "luasnip")
-local mason_status, mason = pcall(require, "mason")
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-
-if mason_status and mason_lspconfig_status then
-  mason.setup()
-  mason_lspconfig.setup({
-    ensure_installed = { "pyright", "rust_analyzer", "powershell_es", "gopls" },
-  })
-end
-
--- Autocompletion (nvim-cmp)
-if cmp_status and luasnip_status then
-  local cmp_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-  local capabilities = cmp_lsp_status and cmp_nvim_lsp.default_capabilities() or {}
-
-  -- Pass completion capabilities globally to all LSP servers
-  vim.lsp.config("*", {
-    capabilities = capabilities,
-  })
-
-  -- Enable configured language servers
-  vim.lsp.enable({ "pyright", "rust_analyzer", "powershell_es", "gopls" })
-
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
-    -- Default nvim-cmp keybindings: <C-n>/<Down> (next), <C-p>/<Up> (prev), <C-y> (confirm), <C-e> (abort)
-    mapping = cmp.mapping.preset.insert(),
-    sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "luasnip" },
-      { name = "buffer" },
-      { name = "path" },
-    }),
-  })
-end
