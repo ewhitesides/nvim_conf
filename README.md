@@ -46,7 +46,6 @@ Managed via [`vim-plug`](https://github.com/junegunn/vim-plug):
 | :--- | :---: | :--- |
 | <kbd>F3</kbd> | Normal / Visual | Open file directory explorer (`:Explore`) |
 | <kbd>F4</kbd> | Normal / Visual | **Toggle terminal split** (open/focus PowerShell 7, or jump back to editor) |
-| <kbd>F4</kbd> | Terminal | Switch from terminal back to editor |
 | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd> | Normal | Cycle to next window split |
 | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>p</kbd> | Normal | Jump to previously accessed window split |
 
