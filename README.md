@@ -58,7 +58,7 @@ Available whenever a language server is attached to a file (Python, Rust, PowerS
 | Shortcut | Mode | Action |
 | :--- | :---: | :--- |
 | <kbd>F3</kbd> | Normal / Visual | Open file directory explorer (`:Explore`) |
-| <kbd>F4</kbd> | Normal / Visual | Open horizontal split terminal (height 10) |
+| <kbd>F4</kbd> | Normal / Visual | Open horizontal split terminal (PowerShell 7 / `pwsh.exe`, height 10) |
 | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>w</kbd> | Normal | Cycle to next window split |
 | <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>p</kbd> | Normal | Jump to previous accessed window split |
 

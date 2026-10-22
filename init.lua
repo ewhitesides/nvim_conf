@@ -32,7 +32,7 @@ vim.opt.wildmenu = true                         -- display matches when we tab c
 -- Key mappings
 -- backslash is not needed for escaping pipe characters in Lua
 vim.keymap.set({ "n", "v" }, "<F3>", "<cmd>Explore<CR>")
-vim.keymap.set({ "n", "v" }, "<F4>", "<cmd>split | resize 10 | terminal<CR>")
+vim.keymap.set({ "n", "v" }, "<F4>", "<cmd>split | resize 10 | terminal pwsh.exe -NoLogo<CR>")
 
 -- On save rm trailing whitespace
 -- https://vim.fandom.com/wiki/Remove_unwanted_spaces
