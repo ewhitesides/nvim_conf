@@ -15,7 +15,6 @@ vim.opt.guicursor:append("n:block-blinkon500-blinkoff500-blinkwait1000")
 vim.opt.guicursor:append("ci:block-blinkon500-blinkoff500-blinkwait1000")
 vim.opt.guicursor:append("ve:block-blinkon500-blinkoff500-blinkwait1000")
 
-
 -- Tab settings to ensure no tab characters
 -- https://vim.fandom.com/wiki/Indenting_source_code
 vim.opt.softtabstop = 2                         -- see multiple spaces as tabstops so <BS> does the right thing
@@ -136,28 +135,6 @@ if mason_status and mason_lspconfig_status then
     ensure_installed = { "pyright", "rust_analyzer", "powershell_es", "gopls" },
   })
 end
-
--- Keymaps when LSP connects to a buffer
-vim.api.nvim_create_autocmd("LspAttach", {
-  desc = "LSP keybindings",
-  callback = function(event)
-    local opts = { buffer = event.buf }
-    -- Hover doc / info (more info on class/function)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<C-Space>", vim.lsp.buf.hover, opts)
-
-    -- Code navigation
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-
-    -- Rename & diagnostics
-    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
-  end,
-})
 
 -- Autocompletion (nvim-cmp)
 if cmp_status and luasnip_status then

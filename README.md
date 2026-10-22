@@ -33,20 +33,24 @@ The dropdown menu automatically appears while typing. You can interact with it u
 
 ---
 
-### 3. LSP & Code Intelligence (Hover & Navigation)
+### 3. LSP & Code Intelligence (Neovim Built-in Defaults)
 
-Available whenever a language server is attached to a file (Python, Rust, PowerShell, Go, etc.):
+Neovim includes built-in LSP keybindings that automatically activate whenever a language server is attached to a file (Python, Rust, PowerShell, Go, etc.):
 
 | Shortcut | Mode | Action |
 | :--- | :---: | :--- |
-| <kbd>Ctrl</kbd> + <kbd>Space</kbd> or <kbd>K</kbd> | Normal | **Hover info**: Show class/function signature, types, and docstrings |
-| <kbd>g</kbd><kbd>d</kbd> | Normal | **Go to Definition** |
-| <kbd>g</kbd><kbd>D</kbd> | Normal | **Go to Declaration** |
-| <kbd>g</kbd><kbd>i</kbd> | Normal | **Go to Implementation** |
-| <kbd>g</kbd><kbd>r</kbd> | Normal | **Find References** across the project |
-| `<leader>` + <kbd>r</kbd><kbd>n</kbd> | Normal | **Rename symbol** across all files |
+| <kbd>K</kbd> | Normal | **Hover info**: Show class/function signature, types, and docstrings |
+| <kbd>Ctrl</kbd> + <kbd>]</kbd> | Normal | **Go to Definition** |
+| <kbd>Ctrl</kbd> + <kbd>t</kbd> | Normal | Jump back from definition (tag stack) |
+| <kbd>g</kbd><kbd>r</kbd><kbd>n</kbd> | Normal | **Rename symbol** across all files |
+| <kbd>g</kbd><kbd>r</kbd><kbd>r</kbd> | Normal | **Find References** across the project |
+| <kbd>g</kbd><kbd>r</kbd><kbd>i</kbd> | Normal | **Go to Implementation** |
+| <kbd>g</kbd><kbd>r</kbd><kbd>t</kbd> | Normal | **Go to Type Definition** |
+| <kbd>g</kbd><kbd>r</kbd><kbd>a</kbd> | Normal / Visual | **Code Actions** (quick-fixes, refactoring) |
+| <kbd>Ctrl</kbd> + <kbd>s</kbd> | Insert | **Signature Help**: Parameter names & types while typing |
 | <kbd>[</kbd><kbd>d</kbd> | Normal | Jump to **previous diagnostic** (error/warning) |
 | <kbd>]</kbd><kbd>d</kbd> | Normal | Jump to **next diagnostic** (error/warning) |
+| <kbd>Ctrl</kbd> + <kbd>w</kbd>, <kbd>d</kbd> | Normal | Show diagnostic popup for current line |
 
 ---
 
