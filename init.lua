@@ -32,7 +32,37 @@ vim.opt.wildmenu = true                         -- display matches when we tab c
 -- Key mappings
 -- backslash is not needed for escaping pipe characters in Lua
 vim.keymap.set({ "n", "v" }, "<F3>", "<cmd>Explore<CR>")
-vim.keymap.set({ "n", "v" }, "<F4>", "<cmd>split | resize 10 | terminal pwsh.exe -NoLogo<CR>")
+vim.keymap.set({ "n", "v" }, "<F4>", function()
+  vim.cmd("split | resize 10 | terminal pwsh.exe -NoLogo")
+  vim.cmd("startinsert")
+end, { desc = "Terminal split (pwsh)" })
+
+-- Switch between terminal and editor with Ctrl+` (or Ctrl+~)
+vim.keymap.set("t", "<C-`>", "<C-\\><C-n><C-w>p", { desc = "Switch from terminal to editor" })
+vim.keymap.set("t", "<C-~>", "<C-\\><C-n><C-w>p", { desc = "Switch from terminal to editor" })
+vim.keymap.set("n", "<C-`>", "<C-w>p", { desc = "Switch to previous window / terminal" })
+vim.keymap.set("n", "<C-~>", "<C-w>p", { desc = "Switch to previous window / terminal" })
+
+-- Terminal configuration
+vim.api.nvim_create_autocmd("TermOpen", {
+  desc = "Automatically enter insert mode and hide line numbers in terminal",
+  pattern = "*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.cmd("startinsert")
+  end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  desc = "Automatically enter insert mode when focusing terminal",
+  pattern = "*",
+  callback = function()
+    if vim.bo.buftype == "terminal" then
+      vim.cmd("startinsert")
+    end
+  end,
+})
 
 -- On save rm trailing whitespace
 -- https://vim.fandom.com/wiki/Remove_unwanted_spaces
